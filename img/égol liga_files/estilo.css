@@ -1,0 +1,4246 @@
+@font-face{
+    font-family:"Open Sans";
+    src: url(../font/OpenSans/OpenSans-Regular.ttf);
+}
+
+body{
+margin:0;
+padding:0;
+/*
+background-image:url("../img/template03.png");
+background-repeat:no-repeat;
+background-position:left 72vw;
+background-size:101.8% auto;
+*/
+background-color:transparent;
+font-family: "Open Sans";
+font-weight: normal;
+cursor: default;
+color: #555;
+outline: none;
+text-rendering: optimizeLegibility;
+font-size: 0.8vw;
+}
+a, a:active, a:visited, a:hover{
+text-decoration:none;
+outline:none;
+color:rgba(14,42,83,1);
+}
+.container{
+
+display: flex;
+flex-direction: column;
+max-width:1920px;
+margin:0 auto;
+}
+.container-rodada-width{
+    width: 100%;
+}
+
+/*Start - Principal*/
+.principal{
+width:100%;
+height:115vw;
+background-color:rgba(255,255,255,1);
+}
+.principal-tabela{
+width:66vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+margin-left: 5vw;
+}
+.principal-tabela-titulo{
+width:100%;
+height:6vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 5.4vw;
+font-size: 2vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+}
+.principal-tabela-classificacao{
+width:99.8%;
+height:auto;
+background-color:rgba(255,0,0,0);
+border-radius:0.3vw;
+border: 0.1vw solid rgb(230, 230, 230);
+/*display: none;*/
+}
+
+.principal-tabela-classificacao-linha{
+width:100%;
+height:3.03vw;
+background-color:rgba(255,0,0,0);
+border-bottom: 0.1vw solid rgb(230, 230, 230);
+float: left;
+transition:all 0.2s ease-in-out;
+}
+.principal-tabela-classificacao-linha:hover{
+background-color:rgba(245,245,245,1);
+transition:all 0.2s ease-in-out;
+}
+.principal-tabela-classificacao-linha:last-child {
+border-bottom: 0vw solid rgb(230, 230, 230);
+}
+.principal-tabela-classificacao-linha-header-posicao{
+width:37vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+padding-left: 0.6vw;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-pontos{
+width:3.2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-jogos{
+width:2.6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-vitorias{
+width:2.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-empates{
+width:2.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-derrotas{
+width:2.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-gols-pro{
+width:2.7vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-gols-contra{
+width:2.7vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-saldo-de-gols{
+width:3.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-cartoes-amarelos{
+width:3.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-cartoes-vermelhos{
+width:3.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-aproveitamento{
+width:2.3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-recentes{
+width:6.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-header-proximo{
+width:3.8vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align:center;
+color: rgba(14,42,83,1);
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-info-btn{
+width:2.6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+font-weight:bold;
+overflow:hidden;
+cursor:pointer;
+}
+.principal-tabela-classificacao-linha-info-btn-off{
+width:4.03vw;
+height:4.03vw;
+background-color:rgba(255,0,0,0);
+transform:rotate(0deg);
+transition:all 0.1s ease-in-out;
+background-image:url("../img/btn-down.svg");
+background-repeat:no-repeat;
+background-position:center center;
+background-size:1vw auto;
+margin-left:-0.7vw;
+}
+.principal-tabela-classificacao-linha-info-btn-on{
+width:4.03vw;
+height:4.03vw;
+background-color:rgb(245, 245, 245);
+transform:rotate(-90deg);
+transition:all 0.1s ease-in-out;
+margin-left:-0.7vw;
+}
+.principal-tabela-classificacao-linha-info-posicao{
+width:3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+font-weight:bold;
+text-align: center;
+}
+.principal-tabela-classificacao-linha-info-subiu{
+width:1.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align: center;
+letter-spacing: -0.2vw;
+color:green;
+}
+.principal-tabela-classificacao-linha-info-subiu:after{
+content:"+1";
+}
+.principal-tabela-classificacao-linha-info-desceu{
+width:1.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 1.1vw;
+text-align: center;
+letter-spacing: -0.2vw;
+color:red;
+}
+.principal-tabela-classificacao-linha-info-desceu:after{
+content:"-1";
+}
+.principal-tabela-classificacao-linha-info-parado{
+width:1.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.73vw;
+font-size: 0.9vw;
+text-align: center;
+letter-spacing: -0.2vw;
+}
+.principal-tabela-classificacao-linha-info-parado:after{
+content:"0";
+}
+.principal-tabela-classificacao-linha-info-escudo{
+width:2.7vw;
+height:inherit;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+font-weight:bold;
+background-repeat:no-repeat;
+background-position:center center;
+background-size:1.5vw auto;
+}
+.principal-tabela-classificacao-linha-info-nome{
+width:29.2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 2.73vw;
+font-size: 0.8vw;
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-info-pontos{
+width:3.2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+font-weight:bold;
+}
+.principal-tabela-classificacao-linha-info-jogos{
+width:2.6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-vitorias{
+width:2.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-empates{
+width:2.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-derrotas{
+width:2.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-gols-pro{
+width:2.7vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-gols-contra{
+width:2.7vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-saldo-de-gols{
+width:3.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-cartoes-amarelos{
+width:3.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-cartoes-vermelhos{
+width:3.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-aproveitamento{
+width:2.3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.73vw;
+font-size: 0.8vw;
+text-align:center;
+}
+.principal-tabela-classificacao-linha-info-recentes{
+width:6.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 0.3vw;
+}
+.recentes-antepenultimo{
+color:white;
+background-color: rgba(235,235,235,1);
+width: 1.5vw;
+height: 1.5vw;
+float: left;
+border-radius: 2vw;
+margin-top: 1vw;
+margin-left: 0.25vw;
+margin-right: 0.25vw;
+text-align:center;
+line-height:1.4vw;
+font-size:1vw;
+}
+.recentes-penultimo{
+color:white;
+background-color: rgba(235,235,235,1);
+width: 1.5vw;
+height: 1.5vw;
+float: left;
+border-radius: 2vw;
+margin-top: 1vw;
+margin-left: 0.25vw;
+margin-right: 0.25vw;
+text-align:center;
+line-height:1.4vw;
+font-size:1vw;
+}
+.recentes-ultimo{
+color:white;
+background-color: rgba(235,235,235,1);
+width: 1.5vw;
+height: 1.5vw;
+float: left;
+border-radius: 2vw;
+margin-top: 1vw;
+margin-left: 0.25vw;
+margin-right: 0.25vw;
+text-align:center;
+line-height:1.4vw;
+font-size:1vw;
+}
+.principal-tabela-classificacao-linha-info-recentes-vitoria{
+color:white;
+background-color: green;
+width: 1.5vw;
+height: 1.5vw;
+float: left;
+border-radius: 2vw;
+margin-top: 1vw;
+margin-left: 0.25vw;
+margin-right: 0.25vw;
+text-align:center;
+line-height:1.4vw;
+font-size:1vw;
+}
+.principal-tabela-classificacao-linha-info-recentes-vitoria:after{
+content:"V";
+}
+.principal-tabela-classificacao-linha-info-recentes-empate{
+color:white;
+background-color: gray;
+width: 1.5vw;
+height: 1.5vw;
+float: left;
+border-radius: 2vw;
+margin-top: 1vw;
+margin-left: 0.25vw;
+margin-right: 0.25vw;
+text-align:center;
+line-height:1.4vw;
+font-size:1vw;
+}
+.principal-tabela-classificacao-linha-info-recentes-empate:after{
+content:"E";
+}
+.principal-tabela-classificacao-linha-info-recentes-derrota{
+color:white;
+background-color: red;
+width: 1.5vw;
+height: 1.5vw;
+float: left;
+border-radius: 2vw;
+margin-top: 1vw;
+margin-left: 0.25vw;
+margin-right: 0.25vw;
+text-align:center;
+line-height:1.4vw;
+font-size:1vw;
+}
+.principal-tabela-classificacao-linha-info-recentes-derrota:after{
+content:"D";
+}
+.principal-tabela-classificacao-linha-info-proximo{
+width:3.8vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.principal-tabela-classificacao-linha-container{
+width:100%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+display:none;
+border-bottom: 0.1vw solid rgb(230, 230, 230);
+}
+.principal-tabela-classificacao-linha-container-titulo{
+width:100%;
+height:6.5vw;
+background-color:rgb(245, 245, 245);
+float:left;
+}
+.principal-tabela-classificacao-linha-container-titulo-escudo{
+width:2.3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: 100% auto;
+margin-left: 1.2vw;
+}
+.principal-tabela-classificacao-linha-container-titulo-txt{
+width:28.3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 6.4vw;
+font-size: 1.6vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+margin-left: 1.1vw;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo{
+width:16.7vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-01{
+width:50%;
+height:3.3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4vw;
+font-weight: bold;
+text-align: center;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-02{
+width:50%;
+height:3.3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4vw;
+text-align: center;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-linha{
+width:100%;
+height:3.1vw;
+background-color:rgba(255,255,255,1);
+float:left;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-linha-resultado-nome{
+width:5vw;
+height:5vw;
+background-color:rgba(255,0,0,0.2);
+float:left;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-linha-resultado-escudo{
+width:5vw;
+height:5vw;
+background-color:rgba(255,0,0,0.2);
+float:left;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-linha-resultado-gols{
+width:3.4vw;
+height:1.4vw;
+background-color:rgba(14,42,83,1);
+float:left;
+margin-left: 2.1vw;
+margin-top: 0.9vw;
+margin-right: 2.2vw;
+text-align: center;
+color: white;
+border-radius: 0.2vw;
+font-size: 1.1vw;
+font-weight: bold;
+line-height: 1.3vw;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-linha-resultado-escudo{
+width:1.3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: 100% auto;
+}
+.principal-tabela-classificacao-linha-container-titulo-ultimo-jogo-linha-resultado-nome{
+width:3.2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.1vw;
+text-align: center;
+font-size: 0.9vw;
+}
+.principal-tabela-classificacao-linha-container-grafico-box{
+width:100%;
+height:33vw;
+background-color:rgba(245,245,245,1);
+float:left;
+}
+.principal-tabela-classificacao-linha-container-grafico-txt{
+width:63.5vw;
+height:4vw;
+background-color:rgba(255,255,255,1);
+float:left;
+margin-top: 0.9vw;
+margin-left: 0.6vw;
+line-height: 4.1vw;
+font-size: 1.1vw;
+padding-left: 0.8vw;
+}
+.principal-tabela-classificacao-linha-container-grafico{
+width:64.3vw;
+height:26.8vw;
+background-color:rgb(255, 255, 255,1);
+float:left;
+margin-left: 0.6vw;
+}
+.principal-tabela-classificacao-linha-container-dados{
+width:100%;
+height:6.8vw;
+background-color:rgba(245,245,245,0);
+float:left;
+}
+.principal-tabela-classificacao-linha-container-dados-01{
+width:31vw;
+height:4.5vw;
+background-color:rgba(255,255,255,1);
+float:left;
+margin-left: 0.8vw;
+margin-top: 0.8vw;
+}
+.principal-tabela-classificacao-linha-container-dados-02{
+width:31vw;
+height:4.5vw;
+background-color:rgba(255,255,255,1);
+float:left;
+margin-top: 0.8vw;
+margin-left: 1.9vw;
+}
+.principal-tabela-classificacao-linha-container-dados table{
+width:100%;
+height:100%;
+border-collapse:collapse;
+}
+.principal-tabela-classificacao-linha-container-dados table td{
+text-align: center;
+font-size: 0.95vw;
+}
+.principal-tabela-atualizacao{
+width:100%;
+height:3.8vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.3vw;
+font-size: 1.1vw;
+color: rgba(14,42,83,1);
+}
+.principal-tabela-btn{
+width:12.3vw;
+height:2.7vw;
+background-color:rgba(14, 42, 83,1);
+float:left;
+line-height: 2.7vw;
+text-align: center;
+color: white;
+font-size: 1.1vw;
+}
+.principal-tabela-redes{
+width:100%;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float: left;
+margin-top: 2.1vw;
+}
+.principal-tabela-redes-facebook{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(59,89,152,1);
+float:left;
+margin-left: 0.1vw;
+margin-right: 0.1vw;
+}
+.principal-tabela-redes-facebook i{
+width:100%;
+height:100%;
+text-align: center;
+font-size: 2vw;
+line-height: 2.9vw;
+color: white;
+}
+.principal-tabela-redes-twitter{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(29,161,242,1);
+float:left;
+margin-left: 0.1vw;
+margin-right: 0.1vw;
+}
+.principal-tabela-redes-twitter i{
+width:100%;
+height:100%;
+text-align: center;
+font-size: 2vw;
+line-height: 2.6vw;
+color:white;
+}
+.principal-jogos{
+width:21vw;
+height:auto;
+background-color:rgba(255,255,255,0);
+float:left;
+margin-left: 2.2vw;
+margin-bottom: 5vw;
+}
+.principal-jogos-titulo{
+width:50%;
+height:6vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 5.4vw;
+font-size: 2vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+}
+.principal-jogos-subtitulo{
+width:50%;
+height:6vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 6vw;
+font-size: 1vw;
+color: rgba(14,42,83,1);
+text-align: right;
+cursor:pointer;
+}
+.principal-jogos-container{
+width:20.4vw;
+height: 100vw;
+background-color:rgba(255,0,0,0);
+border-radius:0.3vw;
+border: 0.1vw solid rgb(230, 230, 230);
+float: left;
+overflow:hidden;
+}
+.principal-jogos-slider{
+height:100%;
+width:816vw;
+transition:all 0.3s ease-in-out;
+}
+.principal-jogos-rodada{
+width:20.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.principal-jogos-barra{
+overflow: hidden;
+width:100%;
+height:4.03vw;
+background-color:rgba(255,0,0,0);
+border-bottom: 0.1vw solid rgb(230, 230, 230);
+float:left;
+}
+.principal-jogos-barra-btn-anterior{
+width:7.2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.principal-jogos-barra-txt{
+width:100%;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 1.1vw;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+text-align: center;
+}
+.principal-jogos-barra-txt-sub{
+width:100%;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.8vw;
+font-size: 1.3vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+text-align: center;
+}
+.principal-jogos-barra-btn-proxima{
+width:6.3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.principal-jogos-info{
+width:100%;
+height:11.13vw;
+background-color:rgba(255,0,0,0);
+border-bottom: 0.1vw solid rgb(230, 230, 230);
+float:left;
+transition:all 0.2s ease-in-out;
+}
+.principal-jogos-info:hover{
+background-color:rgba(245,245,245,1);
+transition:all 0.2s ease-in-out;
+}
+.principal-jogos-info:last-child {
+border-bottom: 0vw solid rgb(230, 230, 230);
+}
+.principal-jogos-txt{
+width:5vw;
+height:5vw;
+background-color:rgba(255,0,0,0.1);
+float:left;
+}
+.principal-jogos-resultado{
+width:100%;
+height:6.3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.principal-jogos-resultado-col{
+width:33.33%;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.principal-jogos-resultado-nome{
+width:5vw;
+height:5vw;
+background-color:rgba(255,0,0,0.2);
+float:left;
+}
+.principal-jogos-resultado-escudo{
+width:5vw;
+height:5vw;
+background-color:rgba(255,0,0,0.2);
+float:left;
+}
+.principal-jogos-resultado-gols{
+width:3.5vw;
+height:1.4vw;
+background-color:rgba(14,42,83,1);
+text-align: center;
+float:left;
+font-weight: bold;
+font-size: 1vw;
+color: white;
+border-radius: 0.2vw;
+line-height: 1.3vw;
+}
+.principal-jogos-resultado-penalti-mandante{
+width:1.4vw;
+height:1.4vw;
+background-color:rgba(14,42,83,0);
+text-align: center;
+float:left;
+font-weight: bold;
+font-size: 1vw;
+color: rgba(14,42,83,1);
+border-radius: 0.2vw;
+line-height: 1.3vw;
+}
+.principal-jogos-resultado-penalti-visitante{
+width:1.4vw;
+height:1.4vw;
+background-color:rgba(14,42,83,0);
+text-align: center;
+float:left;
+font-weight: bold;
+font-size: 1vw;
+color: rgba(14,42,83,1);
+border-radius: 0.2vw;
+line-height: 1.3vw;
+}
+.principal-jogos-resultado-transmissao{
+width:100%;
+height:2.1vw;
+background-color:rgba(255,0,0,0);
+}
+.principal-jogos-resultado-transmissao-100{
+width:100%;
+height:100%;
+background-color:rgba(255,0,0,0);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 1.5vw;
+}
+.principal-jogos-resultado-transmissao-50{
+width:50%;
+height:100%;
+background-color:rgba(255,0,0,0);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 1.5vw;
+float: left;
+}
+.principal-jogos-resultado-escudo{
+width:100%;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 100%;
+}
+.principal-jogos-resultado-nome{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 0.8vw;
+font-size: 0.6vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+text-align: center;
+}
+.principal-jogos-btn-sumula{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 1.3vw;
+font-size: 0.44vw;
+}
+.principal-jogos-txt{
+width:100%;
+height:1.4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 1vw;
+font-size: 0.7vw;
+}
+.principal-jogos-btn{
+width:auto;
+height:1.4vw;
+background-color:rgb(0, 128, 0);
+text-align: center;
+line-height: 1.4vw;
+color: white;
+border-radius: 0.3vw;
+font-size: 0.7vw;
+margin:0 auto;
+margin-right:0.2vw;
+cursor: pointer;
+float: left;
+margin-left: 0.2vw;
+padding-left: 0.3vw;
+padding-right: 0.3vw;
+margin-top: 0.2vw;
+transition:all 0.1s ease-in-out;
+}
+.principal-jogos-btn:hover{
+background-color:rgba(14,42,83,1);
+transition:all 0.1s ease-in-out;
+}
+.principal-jogos-btn-sumula{
+text-align:center;
+}
+.principal-jogos-btn a{
+color: white;
+}
+.principal-jogos-portoes-fechados{
+width:auto;
+height:1.4vw;
+background-color:rgb(128, 0, 0);
+text-align: center;
+line-height: 1.4vw;
+color: white;
+border-radius: 0.3vw;
+font-size: 0.7vw;
+margin:0 auto;
+margin-right:0.2vw;
+cursor: default;
+float: left;
+margin-left: 0.2vw;
+padding-left: 0.3vw;
+padding-right: 0.3vw;
+margin-top: 0.2vw;
+transition:all 0.1s ease-in-out;
+display:none;
+}
+.principal-jogos-portoes-fechados-on{
+display:block;
+}
+.flickity-button{
+background:transparent;
+}
+.flickity-prev-next-button{
+top: 2.5%;
+width:6.3vw;
+height:4.63vw;
+border: none;
+border-radius: 0;
+background-color:rgba(255,0,0,0);
+cursor: pointer;
+margin-top:0px;
+padding: 0vw;
+}
+.flickity-prev-next-button:hover{
+background-color:rgba(255,0,0,0);
+}
+.flickity-prev-next-button.previous{
+left:0vw;
+}
+.flickity-prev-next-button.next{
+right:0vw;
+}
+.flickity-prev-next-button svg{
+width:1.2vw;
+height: auto;
+top: initial;
+left: inherit;
+margin-left: 1vw;
+margin-top: -0.3vw;
+}
+.flickity-prev-next-button .arrow{
+fill: green;
+}
+.on{
+display:block;
+}
+#grafico_card{
+width:17vw;
+height:9vw;
+background-color:rgba(255,255,255,1);
+margin-top:1vw;
+box-shadow: 0vw 0.1vw 0.223vw rgba(0,0,0,0.1);
+}
+.grafico_card-titulo{
+width:100%;
+height:2vw;
+line-height:2vw;
+float:left;
+background-color:rgba(255,0,0,0);
+position:static;
+text-align:center;
+font-weight: bold;
+color:rgba(14,42,83,1);
+}
+.grafico_card-data{
+width:100%;
+height:2vw;
+line-height:2vw;
+float:left;
+background-color:rgba(255,0,0,0);
+position:static;
+text-align:center;
+color:rgba(150,150,150,1);
+}
+.grafico_card-posicao{
+width:100%;
+height:2vw;
+line-height:2vw;
+float:left;
+background-color:rgba(255,0,0,0);
+position:static;
+text-align:center;
+font-weight: bold;
+color:rgba(0,0,0,1);
+}
+.jogo-a-decidir-escudo{
+width:3.3vw;
+height:3.3vw;
+margin-left:1.5vw;
+background-color:rgba(0,0,0,0.1);
+border-radius:5vw;
+}
+.principal-tabela-carrossel{
+position: relative;
+width:100%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+
+.principal-tabela-carrossel .flickity-prev-next-button{
+margin-top: 0px;
+top: 3%;
+}
+.principal-tabela-carrossel-turnos .flickity-prev-next-button{
+margin-top:0px;
+top: 3%;
+}
+/*End - Principal*/
+
+/*Start - Estatisticas*/
+.estatisticas{
+width:100%;
+height:auto;
+background-color:rgba(250, 250, 250,1);
+overflow: hidden;
+margin-bottom: 2vw;
+}
+.estatisticas-box{
+height:100%;
+background-color:rgba(255, 0, 0,0);
+margin:0 auto;
+width:90vw;
+}
+.estatisticas-titulo{
+width:100%;
+height:7vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 7vw;
+font-size: 2vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+text-transform: uppercase;
+}
+.estatisticas-subtitulo{
+width:100%;
+height:2.4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 2.4vw;
+font-size: 1.5vw;
+font-weight: bold;
+color: rgba(14,42,83,1);
+}
+.estatisticas-tabela{
+width:100%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(200,200,200,1);
+border-bottom: 0vw solid rgba(200,200,200,1);
+margin-bottom:1vw;
+}
+.estatisticas-tabela-linha{
+width:100%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+border-bottom: 0.1vw solid rgba(200,200,200,1);
+transition:all 0.1s ease-in-out;
+overflow: hidden;
+}
+.estatisticas-tabela-linha:hover{
+background-color:rgba(200,200,200,1);
+transition:all 0.1s ease-in-out;
+}
+.estatisticas-tabela-linhaTC{
+width:100%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+border-bottom: 0.1vw solid rgba(200,200,200,1);
+transition:all 0.1s ease-in-out;
+overflow: hidden;
+font-size: 1.6vw;
+text-align: center;
+font-bold;
+}
+.estatisticas-tabela-linhaTC:hover{
+background-color:rgba(200,200,200,1);
+transition:all 0.1s ease-in-out;
+}
+.estatisticas-tabela-linhaCACV{
+width:100%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+border-bottom: 0.1vw solid rgba(200,200,200,1);
+transition:all 0.1s ease-in-out;
+overflow: hidden;
+}
+.estatisticas-tabela-linhaCACV:hover{
+background-color:rgba(200,200,200,1);
+transition:all 0.1s ease-in-out;
+}
+
+.estatisticas-tabela-linha-header-posicao{
+width:3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-clube{
+width:6vw;
+height:100%;
+background-color:rgba(0,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-clubeTC{
+width:6vw;
+height:100%;
+background-color:rgba(0,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-clubeCACV{
+width:6vw;
+height:100%;
+background-color:rgba(0,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+
+
+.estatisticas-tabela-linha-header-gols{
+width:6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-CACV{
+width:3vw;
+height:100%;
+background-color:rgba(125,125,125,0.1);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-TCM{
+width: 20vw;
+height: 100%;
+background-color: rgba(125,125,125,0.1);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-TCV{
+width: 15vw;
+height: 100%;
+background-color: rgba(125,125,125,0.1);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-TCL{
+width: 23vw;
+height: 100%;
+background-color: rgba(125,125,125,0.1);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-TCC{
+width:15vw;
+height:100%;
+background-color:rgba(125,125,125,0.1);
+float:left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-TCG{
+width: 6vw;
+height: 100%;
+background-color: rgba(125,125,125,0.1);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-TCF{
+width:16vw;
+height:100%;
+background-color:rgba(125,125,125,0.1);
+float:left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-TCR{
+width: 29vw;
+height: 100%;
+background-color: rgba(125,125,125,0.1);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-CACVB{
+width:3vw;
+height:100%;
+background-color:rgba(125,125,125,0.1);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-header-nomeTC{
+width:31.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-header-jogoTC{
+width: 4vw;
+height: 100%;
+background-color: rgba(255,0,0,0);
+float: left;
+line-height: 2vw;
+text-align: left;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.4vw;
+}
+.estatisticas-tabela-linha-header-dataTC{
+width: 7vw;
+height: 100%;
+background-color: rgba(255,0,0,0);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-header-nome{
+width:31.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-header-nomeCACV{
+width:53.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-header-apelido{
+width:19.4vw;
+height:100%;
+background-color:rgba(125,125,125,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+
+.estatisticas-tabela-linha-header-apelidoCACV{
+width:21.4vw;
+height:100%;
+background-color:rgba(125,125,125,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-header-apelidoTC{
+width: 5vw;
+height: 100%;
+background-color: rgba(125,125,125,0);
+float: left;
+line-height: 2vw;
+text-align: left;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-header-numero{
+width:6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-body-posicao{
+width:3vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 3vw;
+}
+.estatisticas-tabela-linha-body-posicaoCACV{
+width:3vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 3vw;
+}
+
+.estatisticas-tabela-linha-body-clube{
+width:6vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 3vw;
+}
+.estatisticas-tabela-linha-body-clubeCACV{
+width:6vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 3vw;
+}
+
+.estatisticas-tabela-linha-body-gols{
+width:6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+
+.estatisticas-tabela-linha-body-golsCACV{
+width:3vw;
+height:100%;
+background-color:rgba(125,125,125,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-linha-body-golsCACVB{
+width:3vw;
+height:100%;
+background-color:rgba(125,125,125,0.1);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+
+.estatisticas-tabela-linha-body-foto{
+width:3.5vw;
+height:3.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+margin-left: 1vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+position:relative;
+transition:all 0s ease-in-out;
+}
+
+.estatisticas-tabela-linha-body-fotoCACV{
+width:3.5vw;
+height:3.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+margin-left: 1vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+position:relative;
+transition:all 0s ease-in-out;
+}
+
+
+.estatisticas-tabela-linha-body-nome{
+width:26.9vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-jogoTC{
+width: 4vw;
+height: 100%;
+background-color: rgba(255,0,0,0);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-dataTC{
+width: 7vw;
+height: 100%;
+background-color: rgba(255,0,0,0);
+float: left;
+line-height: 1vw;
+text-align: center;
+font-size: 0.75vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-nomeCACV{
+width:51.1vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-nomeTC{
+width: 7vw;
+height: 100%;
+background-color: rgba(255,0,0,0);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.6vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-apelidoCACV{
+width:19.4vw;
+height:100%;
+background-color:rgba(125,125,125,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-apelidoTC{
+width: 22vw;
+height: 100%;
+background-color: rgba(125,125,125,0);
+float: left;
+line-height: 1vw;
+text-align: center;
+font-size: 0.75vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-grupoTC{
+width: 6vw;
+height: 100%;
+background-color: rgba(125,125,125,0);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+
+}
+
+.estatisticas-tabela-linha-body-faseTC{
+width: 15vw;
+height: 100%;
+background-color: rgba(125,125,125,0);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.6vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-rodadaTC{
+width: 24vw;
+height: 100%;
+background-color: rgba(125,125,125,0);
+float: left;
+line-height: 2vw;
+text-align: center;
+font-size: 0.8vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-apelido{
+width:19.4vw;
+height:100%;
+background-color:rgba(125,125,125,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-linha-body-numero{
+width:6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-completa-linha-header-posicao{
+width:3vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-completa-linha-header-clube{
+width:6vw;
+height:100%;
+background-color:rgba(0,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+
+.estatisticas-tabela-completa-linha-header-clubeCACV{
+width:6vw;
+height:100%;
+background-color:rgba(0,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+
+.estatisticas-tabela-completa-linha-header-gols{
+width:6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-completa-linha-header-CACV{
+width:3vw;
+height:100%;
+background-color:rgba(125,125,125,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+
+.estatisticas-tabela-completa-linha-header-nome{
+width:31.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-completa-linha-header-nomeCACV{
+width:52vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 4.6vw;
+}
+
+.estatisticas-tabela-completa-linha-header-apelido{
+width:19.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-completa-linha-header-apelidoCACV{
+width:19.2vw;
+height:100%;
+background-color:rgba(125,125,125,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-completa-linha-header-numero{
+width:8.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-completa-linha-body-posicao{
+width:3vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 3vw;
+}
+.estatisticas-tabela-completa-linha-body-clube{
+width:6vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 3vw;
+}
+.estatisticas-tabela-completa-linha-body-gols{
+width:6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-tabela-completa-linha-body-foto{
+width:3.5vw;
+height:3.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+margin-left: 1vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+position:relative;
+transition:all 0s ease-in-out;
+}
+.estatisticas-tabela-completa-linha-body-nome{
+width:26.9vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-completa-linha-body-apelido{
+width:19.4vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: left;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+padding-left: 0.6vw;
+}
+.estatisticas-tabela-completa-linha-body-numero{
+width:8.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 0.9vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+}
+.estatisticas-link{
+width:auto;
+height:5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3.4vw;
+font-size: 1.2vw;
+font-weight: bold;
+color: rgb(60, 166, 64);
+padding-left: 1.4vw;
+cursor:pointer;
+}
+/*End - Estatisticas*/
+
+/*Start - Documentos*/
+.documentos{
+width:100%;
+height:45vw;
+background-color:rgba(255,255,255,1);
+}
+.documentos-box{
+width:89vw;
+height:39.5vw;
+background-color:rgba(255,255,255,0);
+margin:0 auto;
+box-shadow: 0vw 0.1vw 0.223vw rgba(0,0,0,0.3);
+}
+.documentos-titulo{
+width:100%;
+height:4vw;
+background-color:rgb(14, 42, 83);
+text-align: center;
+padding: 0vw;
+color: white;
+font-size: 1.4vw;
+}
+.documentos-barra{
+width:100%;
+height:7vw;
+background-color:rgba(255,0,0,0);
+}
+.documentos-barra-btn{
+width:auto;
+height:2.7vw;
+background-color:rgba(255,0,0,0);
+float:left;
+margin-left: 1.5vw;
+margin-top: 2.1vw;
+border-radius: 0.2vw;
+text-align: center;
+line-height: 2.7vw;
+font-size: 1.2vw;
+font-weight: bold;
+color: rgb(14, 42, 83);
+padding-left: 1vw;
+padding-right: 1vw;
+transition: all 0.2s ease-in-out;
+cursor: pointer;
+}
+.documentos-barra-btn:hover{
+background-color:rgba(150,150,0,0.2);
+transition: all 0.2s ease-in-out;
+}
+.documentos-barra-btn-on{
+color:white;
+background-color:rgb(14, 42, 83);
+transition: all 0.2s ease-in-out;
+}
+.documentos-barra-btn-on:hover{
+color:white;
+background-color:rgb(0, 25, 65);
+transition: all 0.2s ease-in-out;
+}
+.documentos-tela{
+width:100%;
+height:28.4vw;
+background-color:rgba(255,0,0,0);
+display: none;
+}
+.documentos-tela-on{
+display:block;
+}
+.documentos-tela-titulo{
+width:98.5%;
+height:4.2vw;
+background-color:rgba(255,0,0,0);
+color: rgb(14, 42, 83);
+line-height: 4.5vw;
+padding-left: 1.5%;
+font-size: 2vw;
+float: left;
+font-weight: bold;
+}
+.documentos-tela-tabela{
+width:86.4vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+margin-left: 1.3vw;
+border-left: 0.1vw solid rgba(200,200,200,1);
+border-top: 0.1vw solid rgba(200,200,200,1);
+border-right: 0.1vw solid rgba(200,200,200,1);
+margin-bottom: 2.4vw;
+}
+.documentos-tela-tabela-linha{
+width:100%;
+height:4vw;
+background-color:rgba(255,0,0,0);
+float:left;
+border-bottom: 0.1vw solid rgba(200,200,200,1);
+transition:All 0.2s ease-in-out;
+}
+.documentos-tela-tabela-linha:hover{
+background-color:rgba(0,0,0,0.3);
+transition:All 0.2s ease-in-out;
+}
+.documentos-tela-tabela-linha-header-data{
+width:16.6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+border-right: 0.1vw solid rgba(200,200,200,1);
+padding-left: 0.6vw;
+line-height: 4vw;
+font-size: 1.1vw;
+font-weight: bold;
+}
+.documentos-tela-tabela-linha-header-titulo{
+width:16.6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 0.6vw;
+line-height: 4vw;
+font-size: 1.1vw;
+font-weight: bold;
+}
+.documentos-tela-tabela-linha-body-data{
+width:16.6vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+border-right: 0.1vw solid rgba(200,200,200,1);
+padding-left: 0.6vw;
+line-height: 4vw;
+font-size: 1.1vw;
+font-weight: normal;
+}
+.documentos-tela-tabela-linha-body-titulo{
+width:59.9vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+border-right: 0.1vw solid rgba(200,200,200,1);
+padding-left: 0.6vw;
+line-height: 4vw;
+font-size: 1.1vw;
+font-weight: normal;
+}
+.documentos-tela-tabela-linha-body-btn-espaco{
+width:8.5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.documentos-tela-tabela-linha-body-btn{
+width:7.4vw;
+height:2.7vw;
+background-color:rgb(14, 42, 83);
+margin: 0 auto;
+margin-top: 0.6vw;
+text-align: center;
+line-height: 2.7vw;
+font-size: 1.1vw;
+color: white;
+cursor:pointer;
+}
+.documentos-tela-tabela-linha-body-btn a{
+color: white;
+}
+.documentos-tela-tabela-linha-clube{
+width:8%;
+height:8vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat:no-repeat;
+background-position:center center;
+background-size:auto 4.5vw;
+border-bottom: 0.1vw solid rgba(200,200,200,1);
+cursor:pointer;
+}
+.fonte-vermelha{
+color:rgba(180,0,0,1) !important;
+}
+/*End - Documentos*/
+
+/*Start - SÚMULA*/
+.sumula-banner{
+width:100%;
+height:100vh;
+background-color:rgba(255,0,0,0);
+background-image:url("../img/sumula-fundo.jpg");
+background-repeat:no-repeat;
+background-position:center center;
+background-size:cover;
+color: white;
+background-attachment: fixed;
+}
+.sumula-banner-box-data{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2vw;
+font-size: 1.2vw;
+margin-bottom: 3vw;
+}
+.sumula-banner-box-escudo-mandante{
+width:13vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 100%;
+}
+.sumula-banner-box-escudo-visitante{
+width:13vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 100%;
+}
+.sumula-banner-box-jogo{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+font-size: 1.2vw;
+line-height: 2vw;
+}
+.sumula-banner-box-local{
+width:50vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+text-align: center;
+line-height: 4vw;
+font-size: 1.0vw;
+margin-top: 3vw;
+border: 0.1vw solid white;
+float: left;
+padding-left: 2vw;
+padding-right: 2vw;
+margin-left: 16vw;
+}
+.sumula-banner-box-nome-mandante{
+width:22vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2vw;
+font-size: 1.0vw;
+font-weight: bold;
+}
+.sumula-banner-box-nome-visitante{
+width:22vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2vw;
+font-size: 1.0vw;
+font-weight: bold;
+}
+.sumula-banner-box-resultado{
+width:16vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 3.6vw;
+font-weight: bold;
+}
+.sumula-banner-box-resultado-normal{
+width:100%;
+height:7vw;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.sumula-banner-box-resultado-penaltis{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height:3vw;
+font-size:2vw;
+color:rgba(14,42,83,1);
+}
+.sumula-banner-box{
+width:86vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+font-family: "Segoe UI";
+}
+.sumula-banner-lente{
+width:100%;
+height:100vh;
+background-color:rgba(50,50,50,0.7);
+position: absolute;
+}
+.sumula-titulo{
+width:60vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+text-align: center;
+line-height: 10vw;
+font-size: 2.2vw;
+font-weight: bold;
+float: left;
+}
+.sumula-box{
+width:80vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+margin:0 auto;
+margin-top:3vw;
+border-radius:0.5vw;
+box-shadow:0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-bottom: 10vw;
+overflow: hidden;
+}
+
+.sumula-linha-tituloliga{
+width: 40vw;
+height: 10vw;
+background-color: rgba(255,0,0,0);
+float: inline-end;
+text-align: center;
+line-height: 8vw;
+font-size: 1.5vw;
+}
+
+.sumula-titulo-jogo{
+width:10vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 1.5vw;
+}
+.sumula-titulo-logo-fcf{
+width:14vw;
+height:8vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size:8vw 5vw;
+}
+.sumula-titulo-subtitulo{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 3vw;
+font-size: 2.2vw;
+font-weight: bold;
+}
+.sumula-linha{
+width:100%;
+min-height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.sumula-linha:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-linha-descricao{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.sumula-linha-item{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.sumula-linha-texto{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+padding-top: 2vw;
+padding-bottom: 2vw;
+font-weight: normal;
+line-height:1.8vw;
+}
+.sumula-linha-metade{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.sumula-linha-metade:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-linha-terca{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.sumula-linha-terca:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-linha-titulo{
+width:100%;
+height:5vw;
+background-color:rgba(150,150,150,0);
+float:left;
+text-align: center;
+line-height: 5vw;
+font-size: 2vw;
+font-weight: normal;
+padding-top: 5vw;
+}
+.sumula-linha-direita{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:right;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.sumula-linha-subtitulo-col50{
+width:50%;
+height:3vw;
+background-color:rgba(0,0,0,0.2);
+float:left;
+text-align: center;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-top: 0.1vw solid rgba(0,0,0,0.1);
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.sumula-linha-tabela-col01-item{
+width:2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.sumula-linha-tabela-colBID-descricao{
+width:5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.sumula-linha-tabela-colBID-head{
+width:5vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.sumula-linha-tabela-colITEM-head{
+width:2vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.sumula-linha-tabela-colNOME-descricao{
+width:23vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.sumula-linha-tabela-colNOME-head{
+width:23vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.sumula-tabela-col50{
+width:40vw;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.sumula-tabela-col50 tr{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.sumula-tabela-col50 tr:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-tabela-col50 tr:nth-child(even){
+background-color:rgba(200,200,200,0.1);
+transition:all 0.2s ease-in-out;
+}
+.sumula-tabela-col50 tr:nth-child(even):hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-tabela-col50 tr th{
+background-color:rgba(100,100,100,0.2);
+}
+.sumula-tabela-col50 tr th:nth-child(1){
+text-align:center;
+}
+.sumula-tabela-col50 tr th:nth-child(3){
+text-align:center;
+}
+.sumula-tabela-col50 tr td:nth-child(1){
+text-align:center;
+}
+.sumula-tabela-col50 tr td:nth-child(3){
+text-align:center;
+}
+.sumula-tabela-comissao tr td:nth-child(1){
+font-weight:bold;
+}
+.sumula-tabela-col100{
+width:100%;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.sumula-tabela-col100 tr{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+font-size: 0.8vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+line-height: 1.3vw;
+}
+.sumula-tabela-col100 tr th{
+padding:0.5vw;
+}
+.sumula-tabela-col100 tr td{
+padding:0.5vw;
+}
+.sumula-tabela-col100 tr:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-tabela-col100 tr:nth-child(even){
+background-color:rgba(200,200,200,0.1);
+transition:all 0.2s ease-in-out;
+}
+.sumula-tabela-col100 tr:nth-child(even):hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-tabela-col100 tr th{
+background-color:rgba(100,100,100,0.2);
+}
+.sumula-tabela-col100 tr th:nth-child(1){
+text-align:center;
+}
+.sumula-tabela-col100 tr th:nth-child(3){
+text-align:center;
+}
+.sumula-tabela-col100 tr td:nth-child(1){
+text-align:center;
+}
+.sumula-tabela-col100 tr td:nth-child(3){
+text-align:center;
+}
+.sumula-jogadores-mandante-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.sumula-jogadores-mandante-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-jogadores-visitante-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.sumula-jogadores-visitante-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-gols-escudo{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: auto 100%;
+margin-top: 0.4vw;
+margin-right: 1vw;
+margin-left: 1vw;
+}
+.sumula-tabela-gols tr{
+line-height:3vw;
+}
+.sumula-gols-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.sumula-gols-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.sumula-substituicoes tr{
+line-height:1vw;
+}
+/*End - SÚMULA*/
+
+/*Start - IMT*/
+.imt-banner{
+width:100%;
+height:100vh;
+background-color:rgba(255,0,0,0);
+background-image:url("../img/imt-fundo.jpg");
+background-repeat:no-repeat;
+background-position:center center;
+background-size:cover;
+color: white;
+background-attachment: fixed;
+}
+.imt-banner-box-data{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2vw;
+font-size: 1.2vw;
+margin-bottom: 3vw;
+}
+.imt-banner-box-escudo-mandante{
+width:13vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 100%;
+}
+.imt-banner-box-escudo-visitante{
+width:13vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 100%;
+}
+.imt-banner-box-jogo{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+font-size: 1.2vw;
+line-height: 2vw;
+}
+.imt-banner-box-local{
+width:30vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+text-align: center;
+line-height: 4vw;
+font-size: 1.4vw;
+margin-top: 3vw;
+border: 0.1vw solid white;
+float: left;
+padding-left: 2vw;
+padding-right: 2vw;
+margin-left: 26vw;
+}
+.imt-banner-box-nome-mandante{
+width:22vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 2.8vw;
+font-weight: bold;
+}
+.imt-banner-box-nome-visitante{
+width:22vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 2.8vw;
+font-weight: bold;
+}
+.imt-banner-box-resultado{
+width:16vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 3.6vw;
+font-weight: bold;
+}
+.imt-banner-box-resultado-normal{
+width:100%;
+height:7vw;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.imt-banner-box-resultado-penaltis{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height:3vw;
+font-size:2vw;
+color:rgba(14,42,83,1);
+}
+.imt-banner-box{
+width:86vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+font-family: "Segoe UI";
+}
+.imt-banner-lente{
+width:100%;
+height:100vh;
+background-color:rgba(50,50,50,0.7);
+position: absolute;
+}
+.imt-titulo{
+width:60vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+text-align: center;
+line-height: 10vw;
+font-size: 2.2vw;
+font-weight: bold;
+float: left;
+}
+.imt-box{
+width:80vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+margin:0 auto;
+margin-top:3vw;
+border-radius:0.5vw;
+box-shadow:0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-bottom: 10vw;
+overflow: hidden;
+}
+.imt-titulo-jogo{
+width:10vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 1.5vw;
+}
+.imt-titulo-logo-fcf{
+width:10vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size:auto 4vw;
+}
+.imt-titulo-subtitulo{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 3vw;
+font-size: 2.2vw;
+font-weight: bold;
+}
+.imt-linha{
+width:100%;
+min-height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.imt-linha:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-linha-descricao{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.imt-linha-item{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+
+.imt-linha-tituloliga{
+width: 40vw;
+height: 10vw;
+background-color: rgba(255,0,0,0);
+float: inline-end;
+text-align: center;
+line-height: 8vw;
+font-size: 1.5vw;
+}
+.imt-linha-texto{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+padding-top: 2vw;
+padding-bottom: 2vw;
+font-weight: normal;
+line-height:1.8vw;
+}
+.imt-linha-metade{
+width:50%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.imt-linha-metade:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-linha-terca{
+width:33.33%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.imt-linha-terca:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-linha-titulo{
+width:100%;
+height:5vw;
+background-color:rgba(150,150,150,0);
+float:left;
+text-align: center;
+line-height: 5vw;
+font-size: 2vw;
+font-weight: normal;
+padding-top: 5vw;
+}
+.imt-linha-direita{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:right;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.imt-linha-subtitulo-col50{
+width:50%;
+height:3vw;
+background-color:rgba(0,0,0,0.2);
+float:left;
+text-align: center;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-top: 0.1vw solid rgba(0,0,0,0.1);
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.imt-linha-tabela-col01-item{
+width:2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.imt-linha-tabela-colBID-descricao{
+width:5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.imt-linha-tabela-colBID-head{
+width:5vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.imt-linha-tabela-colITEM-head{
+width:2vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.imt-linha-tabela-colNOME-descricao{
+width:23vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.imt-linha-tabela-colNOME-head{
+width:23vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.imt-tabela-col50{
+width:40vw;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.imt-tabela-col50 tr{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.imt-tabela-col50 tr:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-tabela-col50 tr:nth-child(even){
+background-color:rgba(200,200,200,0.1);
+transition:all 0.2s ease-in-out;
+}
+.imt-tabela-col50 tr:nth-child(even):hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-tabela-col50 tr th{
+background-color:rgba(100,100,100,0.2);
+}
+.imt-tabela-col50 tr th:nth-child(1){
+text-align:center;
+}
+.imt-tabela-col50 tr th:nth-child(3){
+text-align:center;
+}
+.imt-tabela-col50 tr td:nth-child(1){
+text-align:center;
+}
+.imt-tabela-col50 tr td:nth-child(3){
+text-align:center;
+}
+.imt-tabela-comissao tr td:nth-child(1){
+font-weight:bold;
+}
+.imt-tabela-col100{
+width:100%;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.imt-tabela-col100 tr{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+line-height: 1.3vw;
+}
+.imt-tabela-col100 tr th{
+padding:0.5vw;
+}
+.imt-tabela-col100 tr td{
+padding:0.5vw;
+}
+.imt-tabela-col100 tr:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-tabela-col100 tr:nth-child(even){
+background-color:rgba(200,200,200,0.1);
+transition:all 0.2s ease-in-out;
+}
+.imt-tabela-col100 tr:nth-child(even):hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-tabela-col100 tr th{
+background-color:rgba(100,100,100,0.2);
+}
+.imt-tabela-col100 tr th:nth-child(1){
+text-align:center;
+}
+.imt-tabela-col100 tr th:nth-child(3){
+text-align:center;
+}
+.imt-tabela-col100 tr td:nth-child(1){
+text-align:center;
+}
+.imt-tabela-col100 tr td:nth-child(3){
+text-align:center;
+}
+.imt-jogadores-mandante-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.imt-jogadores-mandante-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-jogadores-visitante-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.imt-jogadores-visitante-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-gols-escudo{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: auto 100%;
+margin-top: 0.4vw;
+margin-right: 1vw;
+margin-left: 1vw;
+}
+.imt-tabela-gols tr{
+line-height:3vw;
+}
+.imt-gols-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.imt-gols-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.imt-substituicoes tr{
+line-height:3vw;
+}
+.imt-assinatura{
+width:20vw;
+height:20vw;
+background-color:rgba(255,0,0,0);
+margin:0 auto;
+background-repeat: no-repeat;
+background-position: center center;
+background-size:100% auto;
+}
+/*End - IMT*/
+
+/*Start - DELEGADO*/
+.delegado-banner{
+width:100%;
+height:100vh;
+background-color:rgba(255,0,0,0);
+background-image:url("../img/delegado-fundo.jpg");
+background-repeat:no-repeat;
+background-position:center center;
+background-size:cover;
+color: white;
+background-attachment: fixed;
+}
+.delegado-banner-box-data{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2vw;
+font-size: 1.2vw;
+margin-bottom: 3vw;
+}
+.delegado-banner-box-escudo-mandante{
+width:13vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 100%;
+}
+.delegado-banner-box-escudo-visitante{
+width:13vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size: auto 100%;
+}
+.delegado-banner-box-jogo{
+width:100%;
+height:2vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+font-size: 1.2vw;
+line-height: 2vw;
+}
+.delegado-banner-box-local{
+width:30vw;
+height:4vw;
+background-color:rgba(255,0,0,0);
+text-align: center;
+line-height: 4vw;
+font-size: 1.4vw;
+margin-top: 3vw;
+border: 0.1vw solid white;
+float: left;
+padding-left: 2vw;
+padding-right: 2vw;
+margin-left: 26vw;
+}
+.delegado-banner-box-nome-mandante{
+width:22vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 2.8vw;
+font-weight: bold;
+}
+.delegado-banner-box-nome-visitante{
+width:22vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 2.8vw;
+font-weight: bold;
+}
+.delegado-banner-box-resultado{
+width:16vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 10vw;
+font-size: 3.6vw;
+font-weight: bold;
+}
+.delegado-banner-box-resultado-normal{
+width:100%;
+height:7vw;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.delegado-banner-box-resultado-penaltis{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height:3vw;
+font-size:2vw;
+color:rgba(14,42,83,1);
+}
+.delegado-banner-box{
+width:86vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+font-family: "Segoe UI";
+}
+.delegado-banner-lente{
+width:100%;
+height:100vh;
+background-color:rgba(50,50,50,0.7);
+position: absolute;
+}
+.delegado-titulo{
+width:60vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+text-align: center;
+line-height: 10vw;
+font-size: 2.2vw;
+font-weight: bold;
+float: left;
+}
+.delegado-box{
+width:80vw;
+height:auto;
+background-color:rgba(255,0,0,0);
+margin:0 auto;
+margin-top:3vw;
+border-radius:0.5vw;
+box-shadow:0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-bottom: 10vw;
+overflow: hidden;
+}
+.delegado-titulo-jogo{
+width:40vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:inline-end;
+text-align: center;
+line-height: 8vw;
+font-size: 1.5vw;
+}
+.delegado-titulo-logo-fcf{
+width:10vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+float:left;
+background-repeat: no-repeat;
+background-position: center center;
+background-size:auto 4vw;
+}
+.delegado-titulo-subtitulo{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 3vw;
+font-size: 2.2vw;
+font-weight: bold;
+}
+.delegado-linha{
+width:100%;
+min-height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.delegado-linha:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-linha-descricao{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.delegado-linha-item{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.delegado-linha-texto{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+padding-top: 2vw;
+padding-bottom: 2vw;
+font-weight: normal;
+line-height:1.8vw;
+}
+.delegado-linha-metade{
+width:50%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.delegado-linha-metade:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-linha-terca{
+width:33.33%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.delegado-linha-terca:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-linha-titulo{
+width:100%;
+height:5vw;
+background-color:rgba(150,150,150,0);
+float:left;
+text-align: center;
+line-height: 5vw;
+font-size: 2vw;
+font-weight: normal;
+padding-top: 5vw;
+}
+.delegado-linha-direita{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:right;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.delegado-linha-subtitulo-col50{
+width:50%;
+height:3vw;
+background-color:rgba(0,0,0,0.2);
+float:left;
+text-align: center;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-top: 0.1vw solid rgba(0,0,0,0.1);
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.delegado-linha-tabela-col01-item{
+width:2vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.delegado-linha-tabela-colBID-descricao{
+width:5vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.delegado-linha-tabela-colBID-head{
+width:5vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.delegado-linha-tabela-colITEM-head{
+width:2vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.delegado-linha-tabela-colNOME-descricao{
+width:23vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+}
+.delegado-linha-tabela-colNOME-head{
+width:23vw;
+height:100%;
+background-color:rgba(0,0,0,0.2);
+float:left;
+padding-left: 1vw;
+padding-right: 1vw;
+font-weight: bold;
+}
+.delegado-tabela-col50{
+width:40vw;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.delegado-tabela-col50 tr{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+line-height: 3vw;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+}
+.delegado-tabela-col50 tr:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-tabela-col50 tr:nth-child(even){
+background-color:rgba(200,200,200,0.1);
+transition:all 0.2s ease-in-out;
+}
+.delegado-tabela-col50 tr:nth-child(even):hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-tabela-col50 tr th{
+background-color:rgba(100,100,100,0.2);
+}
+.delegado-tabela-col50 tr th:nth-child(1){
+text-align:center;
+}
+.delegado-tabela-col50 tr th:nth-child(3){
+text-align:center;
+}
+.delegado-tabela-col50 tr td:nth-child(1){
+text-align:center;
+}
+.delegado-tabela-col50 tr td:nth-child(3){
+text-align:center;
+}
+.delegado-tabela-comissao tr td:nth-child(1){
+font-weight:bold;
+}
+.delegado-tabela-col100{
+width:100%;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.delegado-tabela-col100 tr{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+line-height: 1.3vw;
+}
+.delegado-Maqtabela-col100{
+width:100%;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.delegado-Maqtabela-col100 tr{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+line-height: 1.3vw;
+}
+.delegado-tabela-col100 tr th{
+padding:0.5vw;
+}
+.delegado-tabela-col100 tr td{
+padding:0.5vw;
+}
+.delegado-tabela-col100 tr:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-tabela-col100 tr:nth-child(even){
+background-color:rgba(200,200,200,0.1);
+transition:all 0.2s ease-in-out;
+}
+.delegado-tabela-col100 tr:nth-child(even):hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-tabela-col100 tr th{
+background-color:rgba(100,100,100,0.2);
+}
+.delegado-tabela-col100 tr th:nth-child(1){
+text-align:center;
+}
+.delegado-tabela-col100 tr th:nth-child(3){
+text-align:center;
+}
+.delegado-tabela-col100 tr td:nth-child(1){
+text-align:center;
+}
+.delegado-tabela-col100 tr td:nth-child(3){
+text-align:center;
+}
+.delegado-jogadores-mandante-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.delegado-jogadores-mandante-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-jogadores-visitante-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.delegado-jogadores-visitante-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-gols-escudo{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: auto 100%;
+margin-top: 0.4vw;
+margin-right: 1vw;
+margin-left: 1vw;
+}
+.delegado-tabela-gols tr{
+line-height:3vw;
+}
+.delegado-gols-foto{
+width:2.5vw;
+height:2.5vw;
+background-color:rgba(255,0,0,0);
+float:left;
+line-height: 4.2vw;
+text-align: center;
+font-size: 1.1vw;
+font-weight: bold;
+color: rgb(100, 100, 100);
+background-repeat: no-repeat;
+background-position: center top;
+background-size: cover;
+border-radius: 5vw;
+margin-top: 0.4vw;
+box-shadow: 0.1vw 0.1vw 0.3vw rgba(0,0,0,0.2);
+margin-right: 1vw;
+margin-left: 1vw;
+transition:all 0s ease-in-out;
+}
+.delegado-gols-foto:hover{
+position:absolute;
+width:25vw;
+height:25vw;
+border-radius: 25vw;
+margin-left:-10vw;
+margin-top:-10vw;
+box-shadow: 1vw 1vw 3vw rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.delegado-substituicoes tr{
+line-height:3vw;
+}
+/*End - DELEGADO*/
+
+/*Start - MENU*/
+.menu{
+width:100%;
+height:10vw;
+background-color:rgb(58, 119, 40);
+overflow:hidden;
+margin-bottom:2vw;
+}
+.menu-camada{
+width:17vw;
+height:15vw;
+background-color:rgba(255,255,255,1);
+float:left;
+position:relative;
+border-radius:11vw;
+margin-top:-2.5vw;
+margin-left:-3vw;
+}
+.menu-camada-logo{
+width:10vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+margin-left: 3.9vw;
+margin-top: 2.5vw;
+background-repeat: no-repeat;
+background-position: center center;
+background-size:8vw 5vw;
+}
+.menu-titulo{
+width:89vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+color:white;
+margin-left:-5%;
+text-align: center;
+line-height: 10vw;
+font-size: 1.4vw;
+}
+.menu-select{
+width:10vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.menu-select select{
+background-color:rgba(0,0,0,0.5);
+border:0vw;
+width:8vw;
+color:rgba(200,200,200,1);
+line-height:auto;
+height: 4vw;
+font-size: 1.2vw;
+margin-left: 1vw;
+margin-top: 3vw;
+overflow: hidden;
+border-radius: 0.4vw;
+padding: 0.5vw;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+cursor: pointer;
+text-align: center;
+}
+.menu-select{
+width:10vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+}
+.menu-subtitulo{
+width:auto;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+color:white;
+text-align: center;
+line-height: 10vw;
+font-size: 2.4vw;
+padding-right: 2vw;
+padding-left: 2vw;
+}
+.menu-btn{
+background-color:rgb(88, 149, 70);
+border:0vw;
+width:8vw;
+color:white;
+line-height:auto;
+height: 4vw;
+font-size: 1.2vw;
+margin-left: 1vw;
+margin-top: 3vw;
+overflow: hidden;
+border-radius: 0.4vw;
+padding: 0.5vw;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+cursor: pointer;
+text-align: center;
+transition:all 1s ease-in-out;
+}
+/*End - MENU*/
+
+/*Start - Loading*/
+@keyframes girar{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+@keyframes background_vivo{
+0%{background-position:-10% center;}
+50%{background-position:10% center;}
+100%{background-position:-10% center;}
+}
+@keyframes piscar{
+0%{opacity:1;}
+50%{opacity:0;}
+0%{opacity:1;}
+}
+.loading{
+position:fixed;
+background-color:rgba(0,0,0,0.9);
+width:100%;
+height:100%;
+top: 0vw;
+left: 0vw;
+display:none;
+background-image:url("../img/sumula-fundo.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center center;
+}
+.loading-lente{
+background-color:rgba(0,0,0,0.9);
+width:100%;
+height:100%;
+}
+.loading-txt{
+background-color:rgba(245,245,245,0);
+width:10vw;
+height:3vw;
+position: absolute;
+top:70%;
+left:50%;
+transform: translate(-50%, -50%);
+font-size:1vw;
+color:white;
+text-align:center;
+line-height:3vw;
+animation:piscar 3s linear infinite;
+}
+.loading-icone{
+background-color:rgba(245,245,245,0);
+width:10vw;
+height:10vw;
+background-image:url("../img/logo-catarinense.png");
+background-repeat:no-repeat;
+background-position:center center;
+background-size:100% auto;
+position: absolute;
+top:45%;
+left:45%;
+animation:girar 1s infinite;
+transform: translate(-50%, -50%);
+}
+/*End - Loading*/
+
+/*Start - Lightbox*/
+.escurecer{
+position:fixed;
+background-color:rgba(0,0,0,0.8);
+width:100%;
+height:100%;
+top: 0vw;
+left: 0vw;
+background-image:url("../img/fechar.svg");
+background-repeat:no-repeat;
+background-position:97vw 0.5vw;
+background-size:1.2vw auto;
+cursor:pointer;
+display:none;
+}
+.inscricoes{
+position:fixed;
+background-color:rgba(245,245,245,1);
+width:94vw;
+height:44vw;
+top:3%;
+left:2%;
+overflow: auto;
+display:none;
+}
+.inscricoes-time{
+width:99%;
+height:auto;
+background-color:rgba(0,0,0,0);
+float:left;
+margin-top:1vw;
+margin-left:1vw;
+overflow:hidden;
+display:none;
+margin-bottom: 2vw;
+}
+.inscricoes-time-escudo{
+width:99%;
+height:10vw;
+background-color:rgba(255,0,0,0);
+background-repeat:no-repeat;
+background-position:center center;
+background-size:auto 9vw;
+float:left;
+}
+.inscricoes-time-nome{
+width:99%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 5vw;
+font-size: 2.8vw;
+}
+.inscricoes-time-numero{
+width:99%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2vw;
+font-size: 1.4vw;
+}
+.inscricoes-time-titulo{
+width:99%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2.5vw;
+font-size: 1.8vw;
+}
+.inscricoes-time-subtitulo{
+width:99%;
+height:auto;
+background-color:rgba(255,0,0,0);
+float:left;
+text-align: center;
+line-height: 2.5vw;
+font-size: 1.4vw;
+}
+.inscricoes-time-tabela{
+width:99%;
+height:auto;
+border-collapse: collapse;
+background-color:rgba(255,0,0,0);
+float:left;
+border: 0.1vw solid rgba(0,0,0,0.1);
+}
+.inscricoes-time-tabela tr{
+width:100%;
+height:3vw;
+background-color:rgba(255,0,0,0);
+text-align: left;
+font-size: 1vw;
+font-weight: normal;
+border-bottom: 0.1vw solid rgba(0,0,0,0.1);
+transition:all 0.2s ease-in-out;
+line-height: 3vw;
+}
+.inscricoes-time-tabela tr th{
+padding:0.5vw;
+}
+.inscricoes-time-tabela tr td{
+padding:0.5vw;
+}
+.inscricoes-time-tabela tr:hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.inscricoes-time-tabela tr:nth-child(even){
+background-color:rgba(200,200,200,0.1);
+transition:all 0.2s ease-in-out;
+}
+.inscricoes-time-tabela tr:nth-child(even):hover{
+background-color:rgba(0,0,0,0.2);
+transition:all 0.2s ease-in-out;
+}
+.inscricoes-time-tabela tr th{
+background-color:rgba(100,100,100,0.2);
+}
+.inscricoes-time-tabela-foto{
+width:3vw;
+height:3vw;
+background-color:rgba(255,0,0,0);
+float:left;
+margin-right:1vw;
+border-radius:3vw;
+background-repeat:no-repeat;
+background-position:center center;
+background-size:100% auto;
+}
+.inscricoes-time-tabela-foto:hover{
+position:absolute;
+width:16vw;
+height:16vw;
+border-radius:16vw;
+margin-left:-8vw;
+margin-top:-6vw;
+}
+.on{
+display:block;
+}
+/*End - Lightbox*/
+
+/*Start - FOOTER*/
+.footer{
+width:100%;
+height:10vw;
+background-color:rgb(58, 119, 40);
+overflow:hidden;
+}
+.footer-camada{
+width:17vw;
+height:15vw;
+background-color:rgba(255,255,255,1);
+float:left;
+position:relative;
+border-radius:11vw;
+margin-top:-2.5vw;
+margin-left:-3vw;
+}
+.footer-camada-logo{
+width:10vw;
+height:10vw;
+background-color:rgba(255,0,0,0);
+margin-left: 3.9vw;
+margin-top: 2.5vw;
+background-repeat: no-repeat;
+background-position: center center;
+background-size:8vw 5vw;
+}
+.footer-titulo{
+width:79vw;
+height:100%;
+background-color:rgba(255,0,0,0);
+float:left;
+color:white;
+margin-left:-5%;
+text-align: center;
+line-height: 10vw;
+font-size: 1.4vw;
+}
+/*End - FOOTER*/

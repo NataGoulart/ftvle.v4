@@ -1,0 +1,819 @@
+﻿
+
+//#Start - Arrays
+let aCampeonato= new Array();
+let aFases = new Array();
+let aRodadas = new Array();
+let aDocumentos = new Array();
+let aClubes = new Array();
+let aJogadores = new Array();
+let aGoleiros = new Array();
+let aTodosJogadores = new Array();
+let aArtilharia = new Array();
+let asuspensosca = new Array();
+let asuspensoscv = new Array();
+let atabelacompleta = new Array();
+var cinco_artilheiros = new Array();
+var cinco_goleiros = new Array();
+var cinco_suspensosca = new Array();
+var cinco_tabelacompleta = new Array();
+var cinco_suspensoscv = new Array();
+
+let aTodosTimes= new Array();
+var index_jogos = new Array();
+//#End - Arrays
+
+let contador_geral=0
+let aData_Number = new Array()
+var today = new Date();
+var data_atual = today.getDate()+':'+(today.getMonth()+1)+':'+today.getFullYear()+':'+today.getHours()+':'+today.getMinutes();
+aData = data_atual.split(':')
+for (item of aData){aData_Number.push(Number(item))}
+//#Start - Variaveis
+
+var url_completa = window.location.href;
+var url = new URL(url_completa);
+var campeonato_url = url.searchParams.get("sCampeonato");
+//#End - Variaveis
+
+/*Start - TECLADO*/
+document.onkeydown = function(evt){
+	evt = evt || window.event;
+	var isEscape = false;
+	var isEnter = false;
+	if ("key" in evt){
+		isEscape = (evt.key == "Escape" || evt.key == "Esc");
+	}else{
+		isEscape = (evt.keyCode == 27);
+	}
+	if (isEscape) {/*SEMPRE QUE SE PRESSIONAR ESC FAZ O QUE ESTA ABAIXO*/
+		console.log('ESC');
+		$('.escurecer').removeClass('on');
+		$('.inscricoes').removeClass('on');
+		$('.inscricoes-time').removeClass('on');
+		$('.time0').removeClass('on');
+		$('.time1').removeClass('on');
+		$('.time2').removeClass('on');
+		$('.time3').removeClass('on');
+		$('.time4').removeClass('on');
+		$('.time5').removeClass('on');
+		$('.time6').removeClass('on');
+		$('.time7').removeClass('on');
+		$('.time8').removeClass('on');
+		$('.time9').removeClass('on');
+		
+		$('.loading').removeClass('on'); //Debug
+	}
+};
+/*End - TECLADO*/
+
+//#Start - Get arrays por Ajax
+
+function getJsonCampeonato(){
+	
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_IdCampeonato/JSON/debug?sCampeonato='+campeonato_url,
+		async: false,
+		success: function(retorno){
+			aCampeonato = retorno;
+			console.log('Campeonato '+campeonato_url+' carregado com sucesso.')
+        }
+    });
+}getJsonCampeonato()
+
+function getJsonTabelas(){
+	
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_Campeonato/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+			aFases = retorno;
+			console.log(aFases.length+ ' Tabelas carregadas com sucesso.')
+        }
+    });
+}getJsonTabelas()
+
+function getJsonRodadas(){
+
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_Jogos/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+			aRodadas=retorno
+			console.log(aRodadas.length+ ' Rodadas carregadas com sucesso.')
+		}
+	});
+}getJsonRodadas()
+
+function getJsonDocumentos(){
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		 url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_Documentos/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		 
+		async: false,
+		success: function(retorno){
+			
+			aDocumentos = retorno;
+			console.log(aDocumentos.length+ ' Documentos carregados com sucesso.')
+		}
+	})
+}getJsonDocumentos()
+
+function getJsonClubes() {
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_ClubesParticipantes/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+			
+			aClubes = retorno
+			console.log( aClubes.length+ ' Clubes carregados com sucesso.')
+		}
+	})
+}getJsonClubes()
+
+function getJsonArtilharia(){
+
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_Artilharia/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+
+			aArtilharia = retorno
+			console.log(aArtilharia.length+ ' Artilheiros carregados com sucesso.')
+		}
+	})
+}getJsonArtilharia()
+
+function getJsonGoleiros(){
+
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_GoleiroMenosVazado/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+
+			
+			aGoleiros = retorno
+			console.log(aGoleiros.length+ ' Goleiros carregados com sucesso.')
+		}
+	})
+}getJsonGoleiros()
+
+function getJsontabelacompleta(){
+
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_tabelacompleta/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+
+			asuspensosca = retorno
+			console.log(asuspensosca.length+ ' Tabela completa carregada com sucesso.')
+		}
+	})
+}getJsontabelacompleta()
+
+function getJsonsuspensosca(){
+
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_suspensosca/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+
+			asuspensosca = retorno
+			console.log(asuspensosca.length+ ' Suspensos por CA carregados com sucesso.')
+		}
+	})
+}getJsonsuspensosca()
+
+function getJsonsuspensoscv(){
+
+	$.ajax({
+		dataType: "json",
+		method: "GET",
+		url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_suspensoscv/JSON/debug?iAno='+aCampeonato[0].iAno+'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+		async: false,
+		success: function(retorno){
+
+			asuspensoscv = retorno
+			console.log(asuspensoscv.length+ ' Suspensos por CV carregados com sucesso.')
+		}
+	})
+}getJsonsuspensoscv()
+
+
+$('.footer-titulo').append(aCampeonato[0].sCampeonato)
+$('.menu-titulo').append(aCampeonato[0].sCampeonato)
+$('.menu-select select').append('<option class="menu-select-'+aCampeonato[0].iAno+'" value="'+aCampeonato[0].iAno+'">'+aCampeonato[0].iAno+'</option>');
+//#End - Get arrays por Ajax
+
+
+//#Start - Adiciona Tabelas no HTML
+function criar_tabelas(){
+    temp_seq=0
+    for(fase of aFases){
+        fase.seq = temp_seq
+        $('.principal-tabela-carrossel').append(''+
+				'<div class="principal-tabela-classificacao indexFases fase'+fase.seq+'">'+
+				'		<div class="principal-jogos-barra">'+
+				'		<div class="principal-jogos-barra-txt">'+ fase.sNome_Fase +'</div>'+
+				'	</div>'+
+				'	<div class="principal-tabela-classificacao-linha">'+
+				'		<div class="principal-tabela-classificacao-linha-header-posicao">Posição</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-pontos">PTS</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-jogos">J</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-vitorias">V</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-empates">E</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-derrotas">D</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-gols-pro">GP</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-gols-contra">GC</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-saldo-de-gols">SG</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-cartoes-amarelos">CA</div>'+
+				'		<div class="principal-tabela-classificacao-linha-header-cartoes-vermelhos">CV</div>'+
+				'	</div>'+
+				'</div>'+
+				'');
+        temp_seq++
+        for(grupo of fase.Grupo){
+            $('.fase'+fase.seq).append(
+                '<div class="principal-tabela-classificacao-linha">'+
+                '    <div class="principal-jogos-barra-txt">'+grupo.sNome_Grupo+'</div>'+
+                '</div>'
+            )
+			//organiza tabela pela iPosição
+			grupo.Tabela.sort(function (x,y) {
+				return x.iPosicao - y.iPosicao
+			})
+			
+
+            for(time of grupo.Tabela){
+                $('.fase'+fase.seq).append(
+                '<div class="principal-tabela-classificacao-linha">'+
+				'	<div class="principal-tabela-classificacao-linha-info-btn">'+
+				'		<div class="principal-tabela-classificacao-linha-info-btn-off principal-tabela-classificacao-linha-info-btn-on"></div>'+
+				'	</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-posicao"></div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-escudo" style="background-image:url('+ encodeURI(time.sLogo) +')"></div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-nome">'+time.sNome_Clube+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-pontos">'+time.iPontos+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-jogos">'+time.iJogos+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-vitorias">'+time.iVitorias+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-empates">'+time.iEmpates+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-derrotas">'+time.iDerrotas+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-gols-pro">'+time.iGols_Pro+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-gols-contra">'+time.iGols_Contra+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-saldo-de-gols">'+time.iSaldo_Gols+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-cartoes-amarelos">'+time.iCartao_Amar+'</div>'+
+				'	<div class="principal-tabela-classificacao-linha-info-cartoes-vermelhos">'+time.iCartao_Verm+'</div>'+
+				'</div>'+
+				'');
+                
+            }
+        }
+
+    }
+}criar_tabelas()
+
+
+////#End- Adiciona Tabelas no HTML
+function jogo_ocorreu() {
+	$('.container-rodada'+rodada.seq).append(
+	
+					
+		'	<div class="principal-jogos-info jogo'+contador_jogos+'">'+
+		'		<div class="principal-jogos-txt jogo-data">'+jogo.sDiaSemana+', '+jogo.sData+' '+jogo.sHora+' - Jogo: '+jogo.sJogo+'</div>'+
+		'		<div class="principal-jogos-resultado">'+
+		'			<div class="principal-jogos-resultado-col">'+
+		'				<div class="principal-jogos-resultado-escudo jogo-time-casa-escudo" style="background-image: url('+jogo.sLogoMandante+');"></div>'+
+		'				<div class="principal-jogos-resultado-nome jogo-time-casa-abrev">'+jogo.sNmMandante+'</div>'+
+		'			</div>'+
+		'			<div class="principal-jogos-resultado-col">'+
+		'				<div class="principal-jogos-resultado-transmissao">	<div class="principal-jogos-resultado-transmissao-100" style="background-image:url('+jogo.sLogoTransmissao+')"></div></div>'+
+		'				<div class="principal-jogos-resultado-penalti-mandante"></div>'+
+		'				<div class="principal-jogos-resultado-gols">'+jogo.iGolsMandante+ ' X ' +jogo.iGolsVisitante+'</div>'+
+		'				<div class="principal-jogos-resultado-penalti-visitante"></div>'+
+		'				<div class="principal-jogos-portoes-fechados toggle_portao'+jogo.sJogo+'">Portões Fechados</div>'+
+		'			</div>'+
+		'			<div class="principal-jogos-resultado-col">'+
+		'				<div class="principal-jogos-resultado-escudo jogo-time-visitante-escudo" style="background-image: url('+jogo.sLogoVisitante+');"></div>'+
+		'				<div class="principal-jogos-resultado-nome jogo-time-visitante-abrev">'+jogo.sNmVisitante+'</div>'+
+		'			</div>'+
+		'		</div>'+
+		'		<div class="principal-jogos-txt jogo-estadio">'+jogo.sEstadio+'</div>'+
+		'		<div class="principal-jogos-btn-sumula sumula_jogo'+jogo.sJogo+'"></div>'+
+		'	</div>'
+		
+	)
+	if(jogo.sPortoesFechado!="NAO"){$('.toggle_portao'+jogo.sJogo).css('display','block')}
+	if(jogo.sSumula!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="sumula.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">Súmula</a></div>')}
+	if(jogo.sArbritagem!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="arbitragem.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">Arbitragem</a></div>')}
+	if(jogo.sDelegado!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="delegado.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">Delegado</a></div>')}
+	//if(jogo.sBoletimFinan!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="boletim.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">Bol. Financeiro</a></div>')}
+	if(jogo.sIMT!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="imt.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">IMT</a></div>')}
+	
+}
+function jogo_nao_ocorreu() {
+	index_jogos.push(temp_seq_rodada)
+	
+	$('.container-rodada'+rodada.seq).append(
+
+	
+		'	<div class="principal-jogos-info jogo'+contador_jogos+'">'+
+		'		<div class="principal-jogos-txt jogo-data">'+jogo.sDiaSemana+', '+jogo.sData+' '+jogo.sHora+' - Jogo: '+jogo.sJogo+'</div>'+
+		'		<div class="principal-jogos-resultado">'+
+		'			<div class="principal-jogos-resultado-col">'+
+		'				<div class="principal-jogos-resultado-escudo jogo-time-casa-escudo" style="background-image: url('+jogo.sLogoMandante+');"></div>'+
+		'				<div class="principal-jogos-resultado-nome jogo-time-casa-abrev">'+jogo.sNmMandante+'</div>'+
+		'			</div>'+
+		'			<div class="principal-jogos-resultado-col">'+
+		'				<div class="principal-jogos-resultado-transmissao">	<div class="principal-jogos-resultado-transmissao-100" style="background-image:url('+jogo.sLogoTransmissao+')"></div></div>'+
+		'				<div class="principal-jogos-resultado-penalti-mandante"></div>'+
+		'				<div class="principal-jogos-resultado-gols">-         X         -</div>'+
+		'				<div class="principal-jogos-resultado-penalti-visitante"></div>'+
+		'				<div class="principal-jogos-portoes-fechados toggle_portao'+jogo.sJogo+'">Portões Fechados</div>'+
+		'			</div>'+
+		'			<div class="principal-jogos-resultado-col">'+
+		'				<div class="principal-jogos-resultado-escudo jogo-time-visitante-escudo" style="background-image: url('+jogo.sLogoVisitante+');"></div>'+
+		'				<div class="principal-jogos-resultado-nome jogo-time-visitante-abrev">'+jogo.sNmVisitante+'</div>'+
+		'			</div>'+
+		'		</div>'+
+		'		<div class="principal-jogos-txt jogo-estadio">'+jogo.sEstadio+'</div>'+
+		'		<div class="principal-jogos-btn-sumula sumula_jogo'+jogo.sJogo+'"></div>'+
+		'	</div>'
+		
+	)
+	if(jogo.sPortoesFechado!="NAO"){$('.toggle_portao'+jogo.sJogo).css('display','block')}
+	if(jogo.sSumula!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="sumula.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">Súmula</a></div>')}
+	if(jogo.sArbritagem!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="arbitragem.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">Arbitragem</a></div>')}
+	if(jogo.sDelegado!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="delegado.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">Delegado</a></div>')}
+	//if(jogo.sBoletimFinan!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="boletim.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">Bol. Financeiro</a></div>')}
+	if(jogo.sIMT!="NAO"){$('.sumula_jogo'+jogo.sJogo).append('<div class="principal-jogos-btn"><a href="imt.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;iJogo='+jogo.sJogo+'&amp;sLiga='+aCampeonato[0].sLiga+'&amp;sCampeonato='+campeonato_url+'" target="_blank">IMT</a></div>')}
+
+}
+function criar_jogos(){
+	temp_seq_rodada=0
+	for(rodada of aRodadas){
+		rodada.seq = temp_seq_rodada
+		let idaVolta ="&nbsp;"
+		let titulo_rodada
+		titulo_rodada= rodada.sRodada
+			
+		$('.principal-jogos-container').append(
+			'<div class="container-rodada-width container-rodada'+rodada.seq+'">'+
+				'<div class="principal-jogos-barra">'+
+				'	<div class="principal-jogos-barra-txt">'+titulo_rodada+'</div>'+
+				'</div>'+
+				'<div class="principal-jogos-barra">'+
+					'<div class="principal-jogos-barra-txt-sub">'+idaVolta+'</div>'+
+				'</div>'+
+			'</div>'	
+		)
+		contador_jogos=1
+		for(jogo of rodada.Jogos){
+			array_datas=[]
+			aData_Jogo_Number=[]
+			aData_Jogo_String =jogo.sData
+			aData_Jogo = jogo.sData.split('/')
+			aHora = jogo.sHora.split(':')
+			aData_Jogo.push(aHora[0])
+			aData_Jogo.push(aHora[1])
+			
+			
+			
+			for (item of aData_Jogo){aData_Jogo_Number.push(Number(item))}
+
+			if(aData_Jogo_Number[2] >= aData_Number[2] && aData_Jogo_Number[1] == aData_Number[1]){
+				if(aData_Jogo_Number[0] > aData_Number[0]  ){
+					jogo_nao_ocorreu()	
+				}
+				else if(aData_Jogo_Number[0] == aData_Number[0]  ){
+					if(aData_Jogo_Number[3]==aData_Number[3]){
+						if(aData_Jogo_Number[4]>=aData_Number[4]){
+							jogo_nao_ocorreu
+						}
+						else{
+							jogo_ocorreu
+						}
+					}
+					else if(aData_Jogo_Number[3]>aData_Number[3]){
+						jogo_nao_ocorreu()
+					}
+					else{
+						jogo_ocorreu()
+					}
+				}
+				else{
+					jogo_ocorreu()
+				}
+			}
+			else if(aData_Jogo_Number[2] >= aData_Number[2] && aData_Jogo_Number[1] > aData_Number[1]){
+				jogo_nao_ocorreu()
+			}
+			else{
+				jogo_ocorreu()
+			}
+
+			contador_jogos++
+		}
+		temp_seq_rodada++
+	}
+}criar_jogos()
+
+function criar_documentos(){
+	for(doc of aDocumentos){
+		if(doc.sTpDoc=="RG"){$('.tela1 .documentos-tela-tabela').append('<div class="documentos-tela-tabela-linha">	<div class="documentos-tela-tabela-linha-body-data">'+doc.sTpDoc+'</div>	<div class="documentos-tela-tabela-linha-body-titulo">'+doc.sNmDoc+'</div>	<div class="documentos-tela-tabela-linha-body-btn-espaco">		<div class="documentos-tela-tabela-linha-body-btn"><a href="'+doc.sPathDoc+'" target="_blank">Visualizar</a></div>	</div></div>')}
+		else if(doc.sTpDoc=="RE"){$('.tela2 .documentos-tela-tabela').append('<div class="documentos-tela-tabela-linha">	<div class="documentos-tela-tabela-linha-body-data">'+doc.sTpDoc+'</div>	<div class="documentos-tela-tabela-linha-body-titulo">'+doc.sNmDoc+'</div>	<div class="documentos-tela-tabela-linha-body-btn-espaco">		<div class="documentos-tela-tabela-linha-body-btn"><a href="'+doc.sPathDoc+'" target="_blank">Visualizar</a></div>	</div></div>')}
+		else{$('.tela4 .documentos-tela-tabela').append('<div class="documentos-tela-tabela-linha">	<div class="documentos-tela-tabela-linha-body-data">'+doc.sTpDoc+'</div>	<div class="documentos-tela-tabela-linha-body-titulo">'+doc.sNmDoc+'</div>	<div class="documentos-tela-tabela-linha-body-btn-espaco">		<div class="documentos-tela-tabela-linha-body-btn"><a href="'+doc.sPathDoc+'" target="_blank">Visualizar</a></div>	</div></div>')
+	}
+		}
+}criar_documentos()
+
+  function cria_artilharia() {
+	
+	  aArtilharia.sort(function (x,y) {
+		  return x.iPosicao + y.iPosicao
+	  })
+	  aArtilharia.reverse()
+	  cinco_artilheiros.push(aArtilharia[0],aArtilharia[1])
+	  //cinco_artilheiros.push(aArtilharia[0],aArtilharia[1],aArtilharia[2],aArtilharia[3],aArtilharia[4])
+	  
+	 
+	  o=1
+	  if(aArtilharia.length == 0 ){
+	 
+	  }else{
+		for(jogador of cinco_artilheiros){
+		$('.tabela-artilheiros').append(
+		'<div class="estatisticas-tabela-linha artilheiro'+o+'">'+
+		'	<div class="estatisticas-tabela-linha-body-posicao">'+o+'</div>'+
+		 '	<div class="estatisticas-tabela-linha-body-clube" style="background-image:url('+ encodeURI(jogador.sLogo) +');"></div>'+  
+		'	<div class="estatisticas-tabela-linha-body-foto" style="background-image:url('+ encodeURI(jogador.sFoto) +');"></div>'+
+		'	<div class="estatisticas-tabela-linha-body-nome">'+jogador.sNmJogador+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-apelido">'+jogador.sApelido+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-gols">'+jogador.iGols+'</div>'+
+		'</div>')
+		o++				
+		}
+		$('.link-artilheiro').append('<div class="estatisticas-link link-artilheiro"><a href="artilheiro.html?&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">VER TABELA COMPLETA</a></div>')
+	  }
+
+  }cria_artilharia()
+  
+ 
+function cria_goleiros() {
+	
+	aGoleiros.sort((a,b) => b.nMedia - a.nMedia)
+	aGoleiros.reverse()
+	cinco_goleiros.push(aGoleiros[0],aGoleiros[1])
+	//cinco_goleiros.push(aGoleiros[0],aGoleiros[1],aGoleiros[2],aGoleiros[3],aGoleiros[4])
+	o=1
+
+	if(aGoleiros.length == 0){
+
+	}else{
+		for(jogador of cinco_goleiros){
+			if(jogador.sApelido == ''){jogador.sApelido='&nbsp;'}
+			$('.tabela-goleiros').append(
+			'<div class="estatisticas-tabela-linha artilheiro'+o+'">'+
+			'	<div class="estatisticas-tabela-completa-linha-body-posicao">'+o+'</div>'+
+			'	<div class="estatisticas-tabela-completa-linha-body-clube" style="background-image:url('+ encodeURI(jogador.sLogo) +');"></div>'+
+			'	<div class="estatisticas-tabela-completa-linha-body-foto" style="background-image:url('+ encodeURI(jogador.sFoto) +');"></div>'+
+			'	<div class="estatisticas-tabela-completa-linha-body-nome">'+jogador.sNmJogador+'</div>'+
+			'	<div class="estatisticas-tabela-completa-linha-body-apelido">'+jogador.sApelido+'</div>'+
+			'	<div class="estatisticas-tabela-completa-linha-body-gols">'+jogador.iGols+'</div>'+
+			 // '	<div class="estatisticas-tabela-completa-linha-body-numero goleiro-media">'+jogador.nMedia.toFixed(2)+'</div>'+
+			// '	<div class="estatisticas-tabela-completa-linha-body-numero goleiro-part">'+jogador.nParticipacao.toFixed(2)+'</div>'+
+			 '	<div class="estatisticas-tabela-completa-linha-body-numero goleiro-atuacoes">'+jogador.iAtuacoes+'</div>'+
+			'</div>')
+			o++				
+		}
+	$('.link-goleiro').append('<div class="estatisticas-link link-goleiro"><a href="goleiro.html?sumula=1&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">VER TABELA COMPLETA</a></div>')
+	}
+	
+}cria_goleiros()
+
+function criar_inscricao_clubes() {
+	$('.loading').removeClass('on')
+	i=0
+	c=0
+	for(clube of aClubes){
+		$('.documentos-ficha-campo').append('<div onclick="clickclube('+i+')" class="documentos-tela-tabela-linha-clube documentos-clubes'+i+'" style="background-image:url('+clube.sLogo+')"></div>')
+		$('.inscricoes').append('<div class="inscricoes-time time'+i+'"><div class="inscricoes-time-escudo" style="background-image:url('+clube.sLogo+')"></div><div class="inscricoes-time-nome">'+clube.sNmClube+'</div><div class="inscricoes-time-numero">Inscrição do Clube: '+clube.sCodClube+'</div><div class="inscricoes-time-titulo">FICHA DE INSCRIÇÃO</div><div class="inscricoes-time-subtitulo">Atletas Disponíveis para a Competição</div><table class="inscricoes-time-tabela">	<thead>		<tr>			<th>Nº</th>			<th>CBF</th>			<th>Nome do Atleta</th>			<th>Cat.</th>			<th>Data da Inscrição</th>			<th>Atestado</th>		</tr>	</thead>	</div>')
+		$.ajax({
+			dataType: "json",
+			method: "GET",
+			url: 'https://egol.fcf.com.br/egolligaSC/WsEgol.wso/Get_JogadoresClube/JSON/debug?sClube='+ clube.sCodClube +'&iCampeonato='+aCampeonato[0].iCampeonato+'&sLiga='+aCampeonato[0].sLiga,
+			success: function(retorno){
+			
+				aJogadores = retorno;
+				aTodosJogadores.push(aJogadores)
+
+				
+				c++
+				//quando 'i' e 'c' for igual ira executar 
+
+				if(c==i){
+					criar_inscricao_jogadores()
+				}
+			}
+			
+		})	
+		i++
+	}
+}criar_inscricao_clubes()
+
+function criar_inscricao_jogadores() {
+
+	f=0
+	for(clube of aClubes){
+		for(time of aTodosJogadores){
+			if(time.sNmClube == clube.sNmClube){
+				aTodosTimes.push(time)
+			}
+		}
+	}
+	console.log(aTodosTimes.length+ ' Times com Jogadores carregados com sucesso.')
+	for(time of aTodosTimes){
+		for(jogador of time.Jogador){
+			if(jogador.sStatus == 'OK'){$('.time'+f+' .inscricoes-time-tabela').append('<thead><tr>	<td class="time'+f+'-jogador'+jogador.iSequencia+'">'+jogador.iSequencia+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' ">'+jogador.sCBF+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' "><div class="inscricoes-time-tabela-foto" style="background-image:url('+jogador.sFoto+')"></div>'+jogador.sNmJogador+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+'">'+jogador.sCategoria+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' ">'+jogador.sDtInscricao+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' ">'+jogador.sAtestado+'</td></tr></thead>')
+			}
+			else {$('.time'+f+' .inscricoes-time-tabela').append('<thead><tr>	<td class="time'+f+'-jogador'+jogador.iSequencia+' fonte-vermelha">'+jogador.iSequencia+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' fonte-vermelha">'+jogador.sCBF+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' fonte-vermelha"><div class="inscricoes-time-tabela-foto" style="background-image:url('+jogador.sFoto+')"></div>'+jogador.sNmJogador+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' fonte-vermelha">'+jogador.sCategoria+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' fonte-vermelha">'+jogador.sDtInscricao+'</td>	<td class="time'+f+'-jogador'+jogador.iSequencia+' fonte-vermelha">'+jogador.sAtestado+'</td></tr></thead>')
+			}
+		}
+		f++
+	}
+	contador_geral=1
+	$('.loading').removeClass('on')
+	
+}
+
+  function cria_jogos() {
+	
+	 
+		$('.link-jogos').append('<div class="estatisticas-link link-jogos"><a href="tabelacompleta.html?&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">VER TABELA COMPLETA</a></div>')
+	  
+
+  }cria_jogos()
+
+  function cria_suspensosca() {
+	
+	  asuspensosca.sort(function (x,y) {
+		  return x.iPosicao + y.iPosicao
+	  })
+	  asuspensosca.reverse()
+
+		var qtd = 0;
+		var key;
+		for(key in asuspensosca) {
+			if(asuspensosca.hasOwnProperty(key)) {
+				qtd++;
+		  }
+		}
+		console.log('qtd'+qtd); // 2
+
+		if (qtd == 1) {
+			  cinco_suspensosca.push(asuspensosca[0])
+		}
+		if (qtd == 2) {
+			  cinco_suspensosca.push(asuspensosca[0],asuspensosca[1])
+		}
+		if (qtd == 3) {
+			  cinco_suspensosca.push(asuspensosca[0],asuspensosca[1],asuspensosca[2])
+		}
+		if (qtd == 4) {
+			  cinco_suspensosca.push(asuspensosca[0],asuspensosca[1],asuspensosca[2],asuspensosca[3])
+		}
+		if (qtd >= 5) {
+			  cinco_suspensosca.push(asuspensosca[0],asuspensosca[1],asuspensosca[2],asuspensosca[3],asuspensosca[4])
+		}
+
+	 
+	  o=1
+	  if(asuspensosca.length == 0 ){
+	 
+	  }else{
+		for(jogador of cinco_suspensosca){
+		$('.tabela-suspensosca').append(
+		'<div class="estatisticas-tabela-linha suspensosca'+o+'">'+
+		'	<div class="estatisticas-tabela-linha-body-clubeCACV" style="background-image:url('+ encodeURI(jogador.sLogo) +');"></div>'+  
+		'	<div class="estatisticas-tabela-linha-body-fotoCACV" style="background-image:url('+ encodeURI(jogador.sFoto) +');"></div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+jogador.sNmJogador+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-apelidoCACV">'+jogador.sApelido+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-golsCACV">'+jogador.iGols+'</div>'+
+		  
+		'</div>')
+
+		
+		
+		o++				
+		}
+		$('.link-suspensosca').append('<div class="estatisticas-link link-suspensosca"><a href="suspensosca.html?&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">VER TABELA COMPLETA</a></div>')
+	  }
+
+  }cria_suspensosca()
+
+  
+
+function cria_tabelacompleta() {
+	
+	  atabelacompleta.sort(function (x,y) {
+		  return x.iPosicao + y.iPosicao
+	  })
+	  atabelacompleta.reverse()
+	  cinco_tabelacompleta.push(atabelacompleta[0],atabelacompleta[1],atabelacompleta[2],atabelacompleta[3],atabelacompleta[4])
+	  
+	 
+	  o=1
+	  if(atabelacompleta.length == 0 ){
+	 
+	  }else{
+		for(jogador of cinco_tabelacompleta){
+		$('.tabela-tabelacompleta').append(
+		'<div class="estatisticas-tabela-linha tabelacompleta'+o+'">'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sNmCampeonato+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].iJogo+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sData+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sHora+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sNmMandante+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sNmVisitante+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sLocal+'</div>'+
+		// '	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sCidade+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sGrupo+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sFase+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+tabelacompleta[i].sRodada+'</div>'+
+ 		  
+		'</div>')
+
+		
+		
+		o++				
+		}
+		$('.link-tabelacompleta').append('<div class="estatisticas-link link-tabelacompleta"><a href="tabelacompleta.html?&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">VER TABELA COMPLETA</a></div>')
+	  }
+
+  }cria_tabelacompleta()
+  
+ function cria_suspensoscv() {
+	
+	  asuspensoscv.sort(function (x,y) {
+		  return x.iPosicao + y.iPosicao
+	  })
+	  asuspensoscv.reverse()
+
+
+		var qtd = 0;
+		var key;
+		for(key in asuspensoscv) {
+			if(asuspensoscv.hasOwnProperty(key)) {
+				qtd++;
+		  }
+		}
+		console.log('qtd'+qtd); // 2
+
+		if (qtd == 1) {
+			  cinco_suspensoscv.push(asuspensoscv[0])
+		}
+		if (qtd == 2) {
+			  cinco_suspensoscv.push(asuspensoscv[0],asuspensoscv[1])
+		}
+		if (qtd == 3) {
+			  cinco_suspensoscv.push(asuspensoscv[0],asuspensoscv[1],asuspensoscv[2])
+		}
+		if (qtd == 4) {
+			  cinco_suspensoscv.push(asuspensoscv[0],asuspensoscv[1],asuspensoscv[2],asuspensoscv[3])
+		}
+		if (qtd >= 5) {
+			  cinco_suspensoscv.push(asuspensoscv[0],asuspensoscv[1],asuspensoscv[2],asuspensoscv[3],asuspensoscv[4])
+		}
+	 
+	  o=1
+	  if(asuspensoscv.length == 0 ){
+	 
+	  }else{
+		for(jogador of cinco_suspensoscv){
+		$('.tabela-suspensoscv').append(
+		'<div class="estatisticas-tabela-linha suspensoscv'+o+'">'+
+		'	<div class="estatisticas-tabela-linha-body-clubeCACV" style="background-image:url('+ encodeURI(jogador.sLogo) +');"></div>'+  
+		'	<div class="estatisticas-tabela-linha-body-fotoCACV" style="background-image:url('+ encodeURI(jogador.sFoto) +');"></div>'+
+		'	<div class="estatisticas-tabela-linha-body-nomeCACV">'+jogador.sNmJogador+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-apelidoCACV">'+jogador.sApelido+'</div>'+
+		'	<div class="estatisticas-tabela-linha-body-golsCACV">'+jogador.iGols+'</div>'+
+		  
+		'</div>')
+
+		
+		
+		o++				
+		}
+		$('.link-suspensoscv').append('<div class="estatisticas-link link-suspensoscv"><a href="suspensoscv.html?&amp;iAno='+aCampeonato[0].iAno+'&amp;iCampeonato='+aCampeonato[0].iCampeonato+'&amp;sLiga='+aCampeonato[0].sLiga+'" target="_blank">VER TABELA COMPLETA</a></div>')
+	  }
+
+  }cria_suspensoscv()
+
+
+function btnfunction(n){
+
+	$(".tela1").removeClass('documentos-tela-on');
+	$(".tela2").removeClass('documentos-tela-on');
+	$(".tela3").removeClass('documentos-tela-on');
+	$(".tela4").removeClass('documentos-tela-on');
+
+	$(".doc-btn1").removeClass('documentos-barra-btn-on');
+	$(".doc-btn2").removeClass('documentos-barra-btn-on');
+	$(".doc-btn3").removeClass('documentos-barra-btn-on');
+	$(".doc-btn4").removeClass('documentos-barra-btn-on');
+
+	$('.doc-btn'+n).addClass('documentos-barra-btn-on');
+	$('.tela'+n).addClass('documentos-tela-on');
+}
+
+function clickclube(n){
+	if(contador_geral==0){
+		$('.loading').css(   'background-color', 'rgba(0,0,0,0.3)')
+		$('.loading').css(   'background-image', 'none')
+		$('.loading').addClass('on')
+		
+		$('.escurecer').addClass('on');
+		$('.inscricoes').addClass('on');
+		$('.inscricoes .time'+n).addClass('on');
+
+		$('.escurecer').click(function () {
+			$('.escurecer').removeClass('on');
+			$('.inscricoes').removeClass('on');
+			$('.inscricoes .time'+n).removeClass('on');
+		})
+		
+	}
+
+	else{
+		
+		$('.escurecer').addClass('on');
+		$('.inscricoes').addClass('on');
+		$('.inscricoes .time'+n).addClass('on');
+
+		$('.escurecer').click(function () {
+			$('.escurecer').removeClass('on');
+			$('.inscricoes').removeClass('on');
+			$('.inscricoes .time'+n).removeClass('on');
+		})
+	}
+};
+
+
+indexJogos= index_jogos[0]
+indexTabelas =aFases.length -1
+if(index_jogos[0]==undefined){indexJogos=aRodadas.length-1}
+
+$('.principal-tabela-carrossel').flickity({
+	cellAlign: 'left',
+	contain: true,
+	pageDots: false,
+	initialIndex:indexTabelas
+});
+
+$('.principal-jogos-container').flickity({
+	cellAlign: 'left',
+	contain: true,
+	pageDots: false,
+	initialIndex:indexJogos
+});
+
+
+//Ajuste size para cada item listado no flicker
+//Se houver mais de 5 times no flicker esse evento ocorrerá
+
+function flickerResize(){
+
+	let temp = 0;
+	let heightPrincipal = 75
+	let heightJogos = 65;
+	let tempHandler = ($(".container-rodada0").children().length - 2);
+	
+	if(tempHandler > 5){
+		temp = tempHandler - 5
+
+		for (let i = 0; i < temp; i++){
+			heightJogos = heightJogos + 11;
+			heightPrincipal = heightPrincipal + 11;
+		}
+
+		$(".principal").css("height", heightPrincipal+"vw")
+		$(".principal-jogos-container").css("height", heightJogos+"vw")
+	}
+
+}flickerResize()
