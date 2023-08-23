@@ -29,7 +29,8 @@
             $produto =  $linhas["produto"];
             $codigo =  $linhas["codigo"];
 
-            echo("PRODUTO: $produto PREÇO: $codigo  <br>");
+            echo(" $produto  <br>");
+            echo("  $codigo  <br>");
             echo(" <img src='data:image/jpeg;base64,$i' width='100px'> <br> <br> ");
         }
 		
